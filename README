@@ -1,2 +1,3 @@
-Está aplicación contiene algunos bugs, debido a la premura de su entrega,
-en versiónes posteriores se pretende corregir alunos de ellos.
+Versión preliminar de la aplicación para analizar y graficar un plinomio de grado 2.
+
+Creado con el lenguaje C++ en el IDE Turbo C++, sonbre un sistema operativo Windows 7 64 bits.

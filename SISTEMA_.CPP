@@ -93,7 +93,7 @@ void escalaTy(float y[], int tam)
     while(k<tam)
     {
         if(y[k]<0)
-            tmpy[k]=y[k]*-1; //Valor absoluto para el numero contenido en el array y
+            tmpy[k]=y[k]*-1; //Valor absoluto para el número contenido en el array y
         else
             tmpy[k]=y[k];
         k++;
@@ -125,7 +125,7 @@ void escalaTy(float y[], int tam)
     rango=rango+rangoEs;
     for(i=((totalUy/2)/rangoEs)-1; i>=0; i--)//Evita la impresión del 0
     {
-        sprintf(numero,"%.2f",valoresy[i]);//Mide el tamano del valor a imprimir para determinar su posición en la escala del eje y
+        sprintf(numero,"%.2f",valoresy[i]);//Mide el tamaño del valor a imprimir para determinar su posición en la escala del eje y
         outtextxy((max_x/2)+9,(max_y/2)-(((totalUy/2)-rango)*(unidady))-2,numero); //Imprime el resto de los números de la escala (abajo eje y)
         rango=rango+rangoEs;
     }
@@ -137,7 +137,7 @@ void trazaEscx(int totalUx, int unidadx, float max, float min )
     float *valoresx; // declaramos el arreglo
     int tamA=0, rango=0;
     //Array temporal para números de la escala x
-    char *numero; //Guarda temporalmente la conversión a char de un numero para la escala X
+    char *numero; //Guarda temporalmente la conversión a char de un número para la escala X
     char *xy[2]= {"Y","X"}; //Letras del eje x,y
     numero= (char *)malloc(6); //Crea el array
     valoresx = escalax(max, min, totalUx); // Función encargada de devolver el array de enteros para la escala x
@@ -156,7 +156,7 @@ void trazaEscx(int totalUx, int unidadx, float max, float min )
     rango=rango+rangoEs;//Evita la impresión del 0
     for(i=((totalUx/2)/rangoEs)-1; i>=0; i--)
     {
-        sprintf(numero,"%.2f",(valoresx[i]*-1));//Mide el tamano del valor a imprimir para determinar su posición en la escala del eje x
+        sprintf(numero,"%.2f",(valoresx[i]*-1));//Mide el tamaño del valor a imprimir para determinar su posición en la escala del eje x
         tamA=strlen(numero);
         outtextxy((max_x/2)-(((totalUx/2)-rango)*(unidadx))-tamA-2,(max_y/2)+6,numero); //Imprime el resto de los números de la escala (derecha eje x)
         rango=rango+rangoEs;
@@ -176,16 +176,16 @@ void eje_xy(float max, float min)
     setcolor(15);  //Establece el color de los trazos
     //Determina escala de divisiones en el eje x
     float caly=1.8; //Calibra al eje y debido a variaciones con respecto a las unidades del eje x
-    int unidadx=(max_x/20)/(max_x/200); //Determina el tamaño de unidad por cada division en la escala y
+    int unidadx=(max_x/20)/(max_x/200); //Determina el tamaño de unidad por cada división en la escala y
     int totalUx=(max_x/unidadx)-3; //Determina el total de divisiones en el eje x corrección (-3)
     //Determina escala de divisiones en el eje y
-    int unidady=(max_y/20)/(max_y/200); //Determina el tamaño de unidad por cada division en la escala y
+    int unidady=(max_y/20)/(max_y/200); //Determina el tamaño de unidad por cada división en la escala y
     int totalUy=(max_y/unidady)-3; //Determina el total de divisiones en el eje y correccion (+3)
     int limitesx=max_x/unidadx; //Limite para trazado de escala x
     int limitesy=max_y/unidady; //Limite para trazado de escala y
     line(0,max_y/2,max_x,max_y/2); //Traza el eje de las x
     line(max_x/2,0,max_x/2,max_y); //Traza el eje de las y
-    //Convierte el maximo en pantalla entre la unidad definida en un múltiplo de 5
+    //Convierte el máximo en pantalla entre la unidad definida en un múltiplo de 5
     while((limitesx%5)!=0)
     {
         limitesx=limitesx-1;
@@ -240,13 +240,13 @@ int set_graph(void)
         return(-1);  // No se encontró hardware que soporte gráficos
     if (graphdriver != VGA)
     {
-        closegraph(); //Finaliza el modo grafico
+        closegraph(); //Finaliza el modo gráfico
         return 0;
     }
-    return(1);  // Modo grafico aceptado
+    return(1);  // Modo gráfico aceptado
 }
 
-//****************************Trazo e impresión de la grafica en pantalla****************************//
+//****************************Trazo e impresión de la gráfica en pantalla****************************//
 
 //Coordenadas máximas
 void calc_coords(void)
@@ -258,7 +258,7 @@ void calc_coords(void)
     max_y = getmaxy();     // Coordenadas máximas en y
 }
 
-//Calcula el tamano de los arreglos que almacenaran las coordenadas x,y
+//Calcula el tamaño de los arreglos que almacenaran las coordenadas x,y
 int arregloXY(float max, float min)
 {
     int tam=0;
@@ -270,11 +270,11 @@ int arregloXY(float max, float min)
 }
 
 
-//Calculo de coordenadas para la grafica
+//Calculo de coordenadas para la gráfica
 void grafica_cuad(float a, float b, float c,float max, float min)
 {
     //Declaración de variables locales
-    int tam=arregloXY(max, min); //Determina el tamano del arreglo para x,y
+    int tam=arregloXY(max, min); //Determina el tamaño del arreglo para x,y
     float *x;
     float *y;
     int j=0;
@@ -283,7 +283,7 @@ void grafica_cuad(float a, float b, float c,float max, float min)
     //Calculo de las coordenadas x,y
     for(float i=min; i<=max; i=i+0.1)
     {
-        y[j]=-1*(a*pow(i,2)+b*i+c);//Correccion de la apertura de la curva
+        y[j]=-1*(a*pow(i,2)+b*i+c);//Corrección de la apertura de la curva
         x[j]=i;
         j++;
     }
@@ -291,7 +291,7 @@ void grafica_cuad(float a, float b, float c,float max, float min)
     trazo_cuad(x, y, tam);
 }
 
-//Imprime la grafica del polinomio de grado 2
+//Imprime la gráfica del polinomio de grado 2
 void trazo_cuad(float x[], float y[], int tam)
 {
     float comy=0,comx=0,xl=0,yl=0;
@@ -389,7 +389,7 @@ void cuadratica(float max, float min)
                         sprintf(c1,"%G",c);
                         if(strtod(c1, &finalPtr)!=0)//Verificador de entero o flotante
                         {
-                            cv=c;//Convierte el array en un numero flotante
+                            cv=c;//Convierte el array en un número flotante
                             val=1;
                         }
                     }
@@ -417,19 +417,19 @@ void cuadratica(float max, float min)
     solucionE(av, bv, cv);
     system("PAUSE");
     system("cls");
-    //Determina si se puede ejecutar el modo grafico
+    //Determina si se puede ejecutar el modo gráfico
     if (set_graph() != 1)
     {
         printf("Este programa requiere ejecución en modo VGA.\n");
     }
     else
     {
-        //Funciones encargadas de la grafica del polinomio
+        //Funciones encargadas de la gráfica del polinomio
         calc_coords();
         eje_xy(max,min);
         grafica_cuad(av, bv, cv, max, min);
         system("PAUSE");
-        closegraph(); // Termina el modo grafico
+        closegraph(); // Termina el modo gráfico
     }
 }
 
@@ -462,7 +462,7 @@ void ingresaMN(void)
                 if(scanf("%G",&tmv)==1)//Valida entrada de datos (cast a float)
                 {
                     sprintf(x,"%G",tmv); //Convierte la entrada de datos a una arreglo char
-                    if((strtod(x, &finalPtr)!=0)||tmv==0)//Verifica que el dato ingresado sea un numero +,-,entero, flotante o 0
+                    if((strtod(x, &finalPtr)!=0)||tmv==0)//Verifica que el dato ingresado sea un número +,-,entero, flotante o 0
                     {
                         if(i==0)
                         {
@@ -474,7 +474,7 @@ void ingresaMN(void)
                             max1=tmv;
                             Mn=tmv;
                         }
-                        if(Mn<min_x_gr||Mn>max_x_gr)//Verifica que el valor min este dentro del rango
+                        if(Mn<min_x_gr||Mn>max_x_gr)//Verifica que el valor mínimo este dentro del rango
                         {
                             system("cls");
                             printf("Valor fuera de rango.\n\n");
@@ -572,7 +572,7 @@ void solucionE(float a, float b, float c)
     }
 
 
-    printf("A continuacion se muestra la grafica de este polinomio.\n\n",x,p);
+    printf("A continuación se muestra la gráfica de este polinomio.\n\n",x,p);
 }
 
 
